@@ -1,0 +1,13 @@
+﻿  EntityManager.cpp
+  Game.cpp
+  Graphics.cpp
+  Keyboard.cpp
+  Mouse.cpp
+  main.cpp
+  Generating code
+  61 of 420 functions (14.5%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    18 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  GameEngine.vcxproj -> D:\Workspace\VisualStudio\GameEngine\Release\GameEngine.exe
+  GameEngine.vcxproj -> D:\Workspace\VisualStudio\GameEngine\Release\GameEngine.pdb (Full PDB)
