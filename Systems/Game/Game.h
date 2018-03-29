@@ -1,33 +1,23 @@
 #pragma once
 
 #include <iostream>
+#include <fstream>
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
 #include "../System.h"
-#include "../../Entities/EntityManager.h"
-
-enum GameState {
-	GameMenu_Start = 0,
-	GameMenu_Settings,
-	GameMenu_Quit,
-	GamePlaying,
-	GamePaused_Resume,
-	GamePaused_Settings,
-	GamePaused_Exit
-};
+#include "../../Entities/Entity/EntityManager.h"
 
 class Game : public System {
 public:
 	static Game& Instance();
-
+	
 	bool Initialize();
-	void Update(Time deltaTime, Time gameTime) override;
+	void Update() override;
 
-	static GameState GetState();
-	static void SetState(GameState _gameState);
-	static bool IsState(GameState _gameState);
+	static Time GetDeltaTime();
+	static Time GetGameTime();
 
 private:
 	//Prevent Copies or Instantiation of Multiple 'Game's
@@ -35,6 +25,7 @@ private:
 	Game(const Game&) = delete;
 	Game& operator= (const Game&) = delete;
 
-	//Game State Stuff
-	static GameState currentGameState;
+	//Time Variables
+	static Time deltaTime;
+	static Time gameTime;
 };

@@ -24,20 +24,6 @@ void Keyboard::KeyCallback(GLFWwindow* window, int key, int scancode, int action
 
 	//Check for Key Down
 	keyDown[key] = (action != GLFW_RELEASE);
-	HandleInput();
-}
-
-void Keyboard::HandleInput() {
-	Game& gameInstance = Game::Instance();
-	Graphics& graphicsInstance = Graphics::Instance();
-	
-	if (KeyPressed(GLFW_KEY_ESCAPE)) {
-		glfwSetWindowShouldClose(graphicsInstance.GetWindow(), true);
-	}
-
-	if (KeyPressed(GLFW_KEY_ENTER)) {
-
-	}
 }
 
 bool Keyboard::KeyPressed(int key) {

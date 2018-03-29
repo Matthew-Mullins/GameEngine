@@ -1,6 +1,7 @@
 #include "Game.h"
 
-GameState Game::currentGameState = GameMenu_Start;
+Time Game::deltaTime = 0;
+Time Game::gameTime = 0;
 
 Game::Game() {}
 Game &Game::Instance() {
@@ -9,24 +10,21 @@ Game &Game::Instance() {
 }
 
 bool Game::Initialize() {
-	EntityManager::AddEntity(false);
-	EntityManager::AddEntity();
 	return true;
 }
 
-void Game::Update(Time deltaTime, Time gameTime) {
-
+void Game::Update() {
+	//Update Delta Time
+	Time lastTime = 0, currentTime = 0;
+	currentTime = glfwGetTime();
+	deltaTime = currentTime.GetTimeSeconds() - lastTime.GetTimeSeconds();
+	lastTime = currentTime.GetTimeSeconds();	
 }
 
-//Game State Stuff
-GameState Game::GetState() {
-	return currentGameState;
+Time Game::GetDeltaTime() {
+	return deltaTime;
 }
 
-void Game::SetState(GameState _gameState) {
-	currentGameState = _gameState;
-}
-
-bool Game::IsState(GameState _gameState) {
-	return currentGameState == _gameState;
+Time Game::GetGameTime() {
+	return gameTime;
 }

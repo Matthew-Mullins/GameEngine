@@ -1,5 +1,6 @@
 #include "Graphics.h"
 
+//Initialize Sky Color
 const glm::vec3 Graphics::SKY_COLOR = glm::vec3(144.0f, 195.0f, 212.0f) / 255.0f;
 
 Graphics::Graphics() {}
@@ -16,8 +17,8 @@ bool Graphics::Initialize(char* windowTitle) {
 	}
 
 	//Create Window
-	glfwWindowHint(GLFW_SAMPLES, 4);		//4x Anti-aliasing
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);		//OpenGL 4.4
+	glfwWindowHint(GLFW_SAMPLES, 4);									//4x Anti-aliasing
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);						//OpenGL 4.4
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 4);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);		//Dont want old OpenGL
 
@@ -33,7 +34,6 @@ bool Graphics::Initialize(char* windowTitle) {
 	//Set Callbacks
 	glfwSetKeyCallback(window, Keyboard::KeyCallback);
 	glfwSetMouseButtonCallback(window, Mouse::MouseButtonCallback);
-	glfwSetCursorPosCallback(window, Mouse::CursorPosCallback);
 
 	//Center Window
 	const GLFWvidmode* vidMode = glfwGetVideoMode(glfwGetPrimaryMonitor());
@@ -57,7 +57,7 @@ bool Graphics::Initialize(char* windowTitle) {
 	return true;
 }
 
-void Graphics::Update(Time deltaTime, Time gameTime) {
+void Graphics::Update() {
 	//Get Events
 	glfwPollEvents();
 	//Clear Color and Depth Bits

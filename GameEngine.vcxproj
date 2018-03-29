@@ -72,7 +72,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(ProjectDir)Dependencies\glm-0.9.9-a2;$(ProjectDir)Dependencies\glfw-3.2.1.bin.WIN32\include;$(ProjectDir)Dependencies\glew-2.1.0\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)Dependencies\glfw-3.2.1.bin.WIN32\lib-vc2015;$(ProjectDir)Dependencies\glew-2.1.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(ProjectDir)Dependencies\assimp-3.3.1\lib;$(ProjectDir)Dependencies\glfw-3.2.1.bin.WIN32\lib-vc2015;$(ProjectDir)Dependencies\glew-2.1.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -80,7 +80,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(ProjectDir)Dependencies\glm-0.9.9-a2;$(ProjectDir)Dependencies\glfw-3.2.1.bin.WIN32\include;$(ProjectDir)Dependencies\glew-2.1.0\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)Dependencies\glfw-3.2.1.bin.WIN32\lib-vc2015;$(ProjectDir)Dependencies\glew-2.1.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(ProjectDir)Dependencies\assimp-3.3.1\lib;$(ProjectDir)Dependencies\glfw-3.2.1.bin.WIN32\lib-vc2015;$(ProjectDir)Dependencies\glew-2.1.0\lib\Release\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -153,29 +153,38 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Entities\Components\Component.cpp" />
+    <ClCompile Include="Entities\Components\MeshComponent.cpp" />
     <ClCompile Include="Entities\Components\Transform.cpp" />
-    <ClCompile Include="Entities\EntityManager.cpp" />
+    <ClCompile Include="Entities\Entity\EntityManager.cpp" />
     <ClCompile Include="Entities\Entity\Entity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Systems\Game\Game.cpp" />
     <ClCompile Include="Systems\Graphics\Graphics.cpp" />
+    <ClCompile Include="Systems\Graphics\Material\Material.cpp" />
+    <ClCompile Include="Systems\Graphics\Mesh\Mesh.cpp" />
+    <ClCompile Include="Systems\Graphics\Texture\Texture.cpp" />
     <ClCompile Include="Systems\IO\Gamepad.cpp" />
+    <ClCompile Include="Systems\IO\InputManager.cpp" />
     <ClCompile Include="Systems\IO\Keyboard.cpp" />
     <ClCompile Include="Systems\IO\Mouse.cpp" />
-    <ClCompile Include="Tools\Time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entities\Components\Component.h" />
+    <ClInclude Include="Entities\Components\MeshComponent.h" />
     <ClInclude Include="Entities\Components\Transform.h" />
-    <ClInclude Include="Entities\EntityManager.h" />
+    <ClInclude Include="Entities\Entity\EntityManager.h" />
     <ClInclude Include="Entities\Entity\Entity.h" />
     <ClInclude Include="Systems\Game\Game.h" />
     <ClInclude Include="Systems\Graphics\Graphics.h" />
+    <ClInclude Include="Systems\Graphics\Material\Material.h" />
+    <ClInclude Include="Systems\Graphics\Mesh\Mesh.h" />
+    <ClInclude Include="Systems\Graphics\Texture\Texture.h" />
     <ClInclude Include="Systems\IO\Gamepad.h" />
+    <ClInclude Include="Systems\IO\InputManager.h" />
     <ClInclude Include="Systems\IO\Keyboard.h" />
     <ClInclude Include="Systems\IO\Mouse.h" />
     <ClInclude Include="Systems\System.h" />
-    <ClInclude Include="Tools\Time.h" />
+    <ClInclude Include="Tools\Time\Time.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,9 +4,7 @@
 
 #include "../System.h"
 #include "../Game/Game.h"
-
-#include "../IO/Keyboard.h"
-#include "../IO/Mouse.h"
+#include "../IO/InputManager.h"
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
@@ -18,7 +16,7 @@ public:
 	static Graphics& Instance();
 
 	bool Initialize(char* windowTitle);
-	void Update(Time deltaTime, Time gameTime) override;
+	void Update() override;
 
 	GLFWwindow* GetWindow() const;
 private:
@@ -26,7 +24,7 @@ private:
 	Graphics();
 	Graphics(const Graphics&) = delete;
 	Graphics& operator= (const Graphics&) = delete;
-
+	std::vector<int> stuff;
 	//Variables
 	GLFWwindow* window;
 	int windowWidth = 1024;
